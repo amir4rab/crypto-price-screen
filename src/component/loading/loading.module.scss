@@ -1,0 +1,86 @@
+.overlay {
+    z-index: 1100;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    background: #000000ce;
+    backdrop-filter: blur(.25rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.box {
+    color: #ffffff;
+    font-size: 2vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 20vh;
+    height: 20vh;
+    // border: .1rem solid #000;
+    &::after{
+        content: '';
+
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        left: 0;
+        right: 0;
+
+        // border: .5rem solid #ffffff
+        //         .5rem solid #ff0000
+        //         .5rem solid #ffffff
+        //         .5rem solid #ff0000;
+
+        border-top: .25rem solid #ffffff4b;
+        border-bottom: .25rem solid #ffffff4b;
+        border-right: .05rem solid #ffffff4b;
+        border-left: .05rem solid #ffffff4b;
+        border-radius: 50%;
+
+        box-shadow: inset 0 0 1rem -.5rem #ffffff4b;
+
+        @keyframes rotatefromMe {
+            0% {
+                transform: rotateZ(0deg);
+                // left: 0;
+            }
+            // 50% {
+            //     transform: rotateZ(180deg);
+            // }
+            100% {
+                transform: rotateZ(180deg);
+                // left: 100;
+            }
+        }
+
+        animation: rotatefromMe 1.5s infinite ease-in-out;
+
+        // @keyframes slidein {
+        //     from {
+        //         transform: translateX(0%);
+        //     }
+            
+        //     to {
+        //         transform: translateX(100%);
+        //     }
+        // }
+        
+        // animation: 2s ease-in-out 0s infinite alternate rotatefromMe;
+        // animation: 3s ease-in 1s infinite reverse both running slidein;
+    }
+}
+
+@media screen and ( min-width: 1000px ) and ( min-height: 600px ) {
+    .box{
+        font-size: 2vw;
+        width: 20vw;
+        height: 20vw;
+    }
+}

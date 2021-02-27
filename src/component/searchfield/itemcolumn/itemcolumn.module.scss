@@ -1,0 +1,25 @@
+.main {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    justify-items: center;
+    padding: .5rem .5rem;
+    background: #252525;
+    &_icon{
+        max-height: 1.25rem;
+        padding-right: 1rem;
+    }
+    &_name{
+        font-weight: 600;
+        font-size: 1.25rem;
+    }
+    &:hover{
+        cursor: pointer;
+        background: #2c2c2c;
+    }
+}
+
+@media screen and ( min-width: 1000px ) and ( min-height: 600px ) {
+    
+}

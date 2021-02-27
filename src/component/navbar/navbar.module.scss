@@ -1,0 +1,31 @@
+.main {
+    height: 10vh;
+    padding: 0 5vw;
+
+    background: #202020;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    // z-index: 1000;
+    
+    .menuBtn{
+        // z-index: 1000;
+        color: #ffffff80;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: .1s ease-in-out color;
+        &:hover{
+            color: #ffffffb0;
+        }
+    }
+}
+
+@media screen and ( min-width: 1000px ) and ( min-height: 600px ) {
+    .main {
+        padding: 0 1vw;
+        height: 5vh;
+    }
+}

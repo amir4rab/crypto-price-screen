@@ -1,0 +1,116 @@
+.main{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #000000ce;
+    backdrop-filter: blur(.25rem);
+
+    z-index: 500;
+    
+    display: flex;
+    
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    
+    .inner{
+        z-index: 1500;
+        
+        width: 100%;
+        height: 100%;
+        
+        background: #202020;
+        
+        margin: auto 0;
+
+        display: flex;
+        
+        justify-items: center;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        
+        position: relative;
+        .optionGroup {
+            flex-grow: 1;
+
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            justify-content: center;
+            align-content: flex-start;
+            
+            color: white;
+            padding: 0rem 2rem;
+            &:not(:last-child){
+                border-bottom: .1rem solid #333333;
+            }
+            &_title{
+                font-size: 2rem;
+                padding-bottom: 2rem;
+            }
+            &_smallText{
+                font-size: .8rem;
+                opacity: .85;
+            }
+            select{
+                max-width: 50%;
+            }
+            .greenBtn{
+                max-width: 100%;
+                background: #22a738;
+                padding: .25rem 1rem;
+                border: none;
+                border-radius: .25em;
+                color: white;
+                font-size: .8rem;
+            }
+
+        }
+        .closeBtn{
+            position: absolute;
+    
+            top: 1rem;
+            right: 1rem;
+    
+            background: none;
+            border: none;
+            outline: none;
+
+            &_icon{
+                color: white;
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and ( min-width: 1000px ) and ( min-height: 600px ) { 
+    .main .inner{
+        z-index: 1500;
+        
+        width: 50%;
+        height: 50%;
+
+        .optionGroup{
+            select{
+                max-width: 25%;
+            }
+            .greenBtn{
+                max-width: 45%;
+                background: #22a738;
+                padding: .25rem 1rem;
+                border: none;
+                border-radius: .25em;
+                color: white;
+                font-size: .8rem;
+            }
+        }
+    }
+}
