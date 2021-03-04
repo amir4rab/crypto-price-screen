@@ -8,43 +8,27 @@ import styles from "./home.module.scss";
 import CryptoDisplayer from '../../component/cryptoDisplayer/cryptoDisplayer.component';
 import Navbar from '../../component/navbar/navbar.component';
 
+import useCoinrankingapi from '../../hooks/useCoinrankingapi';
+
 const Home = ({ 
     settings,
     setLoadedData,
-    activeCoin,
-    data
+    activeCoin
     }) => {
 
-    const [ state, setState ] = useState({
-        currData: null
-    });
+    const { apidata, base } = useCoinrankingapi(settings)
 
-    const fetchDataFromApi = useCallback(() => {
-        // console.log(settings);
-        fetch(`https://api.coinranking.com/v1/public/coins?base=${ settings.base }&timePeriod=${ settings.timePeriod }`)
-        .then(res => res.json())
-        .then(res => {
-            setLoadedData(res.data);
-            setState(currState => ({
-                ...currState,
-                currData: res.data.base
-            }));
-        })
-        .catch(err => console.error(err));
-    },[ setLoadedData, settings ]);
-
-    useEffect( () => {
-        fetchDataFromApi();
-    },[fetchDataFromApi]);
-
-    console.log(data.data);
+    useEffect(_=> {
+        console.log(apidata === null);
+        if(apidata !== null) setLoadedData(apidata);
+    },[apidata, setLoadedData])
 
     return (
         <div className={styles.home}>
             <Navbar />
             { 
-                state.currData === null ? null :
-                <CryptoDisplayer coinData={ activeCoin } baseData={ state.currData } /> 
+                apidata === null ? null :
+                <CryptoDisplayer coinData={ activeCoin } baseData={ base } /> 
             }
         </div>
     );

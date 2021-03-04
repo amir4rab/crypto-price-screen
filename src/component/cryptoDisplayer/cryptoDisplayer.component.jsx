@@ -4,6 +4,8 @@ import styles from './cryptoDisplayer.module.scss';
 
 const CryptoDisplayer = ({ coinData, baseData }) => {
 
+    console.log(coinData, baseData);
+
     return (
         coinData === null ? <div> loading </div> :
         <div className={ styles.main } style={{ backgroundColor: coinData.color }}>
